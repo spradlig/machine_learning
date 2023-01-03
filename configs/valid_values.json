@@ -1,0 +1,30 @@
+{
+  "__version": "30-Dec-22",
+  "__license": "Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0); See LICENSE.txt",
+  "__comments": {
+    "notes": "This file defines the valid values for each option listed. The purpose is to allow for automated double checking of the config files."
+  },
+  "learning_type": ["supervised", "unsupervised", "reinforcement"],
+  "supervised": {
+    "problem_types": [
+      "binary_classification",
+      "multiclass_classification",
+      "scalar_regression",
+      "vector_regression"
+    ],
+    "success_metric": [],
+    "loss_function": []
+  },
+  "unsupervised": {
+    "problem_types": [],
+    "success_metric": [],
+    "loss_function": []
+  },
+  "reinforcement": {
+    "problem_types": [],
+    "success_metric": [],
+    "loss_function": []
+  },
+  "cleaning": ["fill", "remove"],
+  "encoding": ["label", "one_hot"]
+}

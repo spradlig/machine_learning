@@ -1,0 +1,8 @@
+{
+  "__version": "30-Dec-22",
+  "__license": "Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0); See LICENSE.txt",
+  "__comments": {
+    "notes": "This file is an example config for data feature engineering.",
+    "warning": "The particulars of the feature engineering pipeline are a unique combination of the ML model, dataset, and the data type in the column. For the time being it is anticipated that pipelines will remain somewhat custom to the ML problem being solved."
+  }
+}

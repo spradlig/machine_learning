@@ -37,3 +37,25 @@ TODOs:
 
 
 # Tool imports
+import configs
+
+
+def execute_exploratory_analysis(config_file: str):
+    """
+
+    Args:
+        config_file:
+
+    Returns:
+
+    """
+
+    config = configs.Config(config_file=config_file)
+
+    # Steps - see the notes/Kozyrkov_12steps.md
+    # 0 - Reality Check and Setup - this isn't part of the code base.
+    # 1 - Define your Objective - this isn't really part of the code base but informs the config file.
+    # 2 - Data Collection - this happens as part of the config creation.
+    # 3 - Split the Data - this should be done before preprocessing, feature engineering, etc.
+    # 4 - Exploratory Data Analysis - this should be done on the Training Set only.
+    # 5 - Prepare Your Tools -

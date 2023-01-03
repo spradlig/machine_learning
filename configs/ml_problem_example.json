@@ -1,0 +1,43 @@
+{
+  "__version": "30-Dec-22",
+  "__license": "Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0); See LICENSE.txt",
+  "__comments": {
+    "notes": "This file is an example config for an ML problem."
+  },
+  "learning_type": "supervised",
+  "problem_type": "multiclass_classification",
+  "random_seed": 42,
+  "dataset": {
+    "reference": "$configs$/openml_wine_quality_red_dataset.json",
+    "override": {
+      "split_percentages": {
+        "random_seed": 142,
+        "training": 0.7,
+        "validation": 0.2,
+        "testing": 0.1
+      }
+    }
+  },
+  "models": {
+    "RandomForestRegressor": {
+      "object": {
+        "module": "sklearn.ensemble",
+        "class": "RandomForestRegressor",
+        "args": {
+          "n_estimators": 300,
+          "max_depth": 10
+        }
+      },
+      "preprocessing_pipeline": {
+        "reference": "$configs$/preprocessing_example.json",
+        "override": {}
+      },
+      "feature_engineering_pipeline": {
+        "reference": "$configs$/feature_engineering_example.json",
+        "override": {}
+      },
+      "success_metric": "",
+      "loss_function": ""
+    }
+  }
+}

@@ -3,10 +3,8 @@ Module:
     local_config.py
 
 Description:
-    Items such as simulation directories, plotting preferences, etc. can be defined
-    in this file. Many of the items can automatically determined but not all and users
-    may prefer to deviate from the automatically chosen directory structure or plotting
-    defaults.
+    Items such as data directories, plotting preferences, etc. can be defined
+    in this file. Many of the items can be automatically determined but not all.
 
 Usage:
     from local_config import LOCAL_ENV
@@ -37,6 +35,7 @@ TODOs:
 
 # Standard library imports
 from matplotlib import pyplot as plt
+import plotly.io as pio
 import os
 import platform
 from dataclasses import dataclass, field
@@ -46,15 +45,21 @@ from dataclasses import dataclass, field
 
 plt.style.use('fivethirtyeight')
 
+# Render plotly interactive plots in a browser.
+pio.renderers.default = 'browser'
+
+# Render the plots inline for Spyder.
+# pio.renderers.default = 'svg'
+
 # Automatically determine where the directory of this file.
 base_dir = os.path.dirname(__file__) + os.sep
-print(f'Tower Defense Base Directory: {base_dir}')
+print(f'Machine Learning Base Directory: {base_dir}')
 
 
 @dataclass(frozen=True)
 class Directories:
     """
-    This class holds the directories for the sim. They are read-only.
+    This class holds the directories for the ML project. They are read-only.
 
     Reference on using dataclasses:
         https://www.pythontutorial.net/python-oop/python-dataclass/
@@ -63,11 +68,10 @@ class Directories:
     base: str = base_dir
     cache: str = field(init=False)
     configs: str = os.path.join(base_dir, 'configs')
-    data: str = os.path.join(base_dir, 'data')
+    dataset: str = os.path.join(base_dir, 'dataset')
     docs: str = os.path.join(base_dir, 'docs')
     graphics: str = os.path.join(base_dir, 'graphics')
     examples: str = os.path.join(base_dir, 'examples')
-    results: str = field(init=False)
 
     def __post_init__(self):
         """
@@ -83,8 +87,8 @@ class Directories:
 
         # So we work around it like this:
         #   https://stackoverflow.com/questions/53756788/how-to-set-the-value-of-dataclass-field-in-post-init-when-frozen-true
-        object.__setattr__(self, 'cache', os.path.join(self.data, 'cache'))
-        object.__setattr__(self, 'results', os.path.join(self.data, 'results'))
+        # object.__setattr__(self, 'results', os.path.join(self.data, 'results'))
+        pass
 
 
 # DIRECTORIES is capitalized because it should be treated as a constant outside this file.
@@ -99,6 +103,7 @@ class LocalEnv:
 
     OS_IS_WINDOWS: bool = 'Windows' in platform.platform()
     DIRECTORIES: Directories = DIRECTORIES
+
 
 # It is recommended that you use only the class(es) below.
 LOCAL_ENV = LocalEnv()

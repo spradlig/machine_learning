@@ -9,7 +9,6 @@
     "class": "Openml_Dataset",
     "args": {
       "id": "40691",
-      "title": "Wine Quality (Red)",
       "column_headers": [
         "fixed_acidity",
         "volatile_acidity",
