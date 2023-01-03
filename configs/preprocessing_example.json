@@ -1,0 +1,9 @@
+{
+  "__version": "30-Dec-22",
+  "__license": "Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0); See LICENSE.txt",
+  "__comments": {
+    "notes": "This file is an example config for data cleaning of a dataset."
+  },
+  "nans": "fill",
+  "encoding": "label"
+}
